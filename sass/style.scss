@@ -1,0 +1,30 @@
+/*
+sass sass/style.scss css/style.css --watch
+*/
+
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-image: url("../img/body-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+#photo {
+  background-color: black;
+  border-radius: 50%;
+  height: 500px;
+  width: 500px;
+  overflow: hidden;
+}
+
+#photo img {
+  height: 105%;
+  width: 105%;
+}
