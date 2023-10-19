@@ -19,10 +19,13 @@ body {
   grid-template-rows: 10px 1fr 10px;
 }
 
-#mainBox {
+#hiddenBox {
+  display: grid;
   grid-column: 2/3;
   grid-row: 2/3;
   background-color: #d9d9d969;
+  // grid-template-columns: 10px 1fr 10px;
+  // grid-template-rows: 10px 1fr 10px;
 }
 
 #photo {
@@ -38,3 +41,6 @@ body {
   width: 105%;
 }
 
+#hiddenBox nav {
+
+}
