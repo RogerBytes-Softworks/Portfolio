@@ -15,23 +15,48 @@ body {
   background-repeat: no-repeat;
   background-position: right;
   display: grid;
-  grid-template-columns: 10px 1fr 10px;
-  grid-template-rows: 10px 1fr 10px;
+  grid-template-columns: 18px 1fr 18px;
+  grid-template-rows: 18px 1fr 18px;
 }
 
 #hiddenBox {
   display: grid;
   grid-column: 2/3;
   grid-row: 2/3;
-  background-color: #d9d9d969;
-  // grid-template-columns: 10px 1fr 10px;
-  // grid-template-rows: 10px 1fr 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr .8fr;
+}
+
+#mainBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #d9d9d935;
+  grid-row: 1/10;
+  grid-column: 1/11;
+}
+
+#menuNav {
+  background-color: #d9d9d935;
+  grid-row: 10/11;
+  grid-column: 1/11;
+}
+
+#menuNav::before {
+  display: block;
+  height: 2px;
+  background-color: #d9d9d9;
+  width: 100%;
+  content: "";
 }
 
 #photo {
-  background-color: #d9d9d969;
+  background-color: #d9d9d97b;
   border-radius: 50%;
-  width: 33%;
+  width: 75%;
   aspect-ratio: 1/1;
   overflow: hidden;
 }
@@ -39,8 +64,4 @@ body {
 #photo img {
   height: 105%;
   width: 105%;
-}
-
-#hiddenBox nav {
-
 }
