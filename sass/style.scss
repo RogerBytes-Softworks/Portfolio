@@ -75,18 +75,22 @@ body {
 #contact {
   grid-row: 8/11;
   grid-column: 3/10;
+  grid-template-columns: 1fr 9fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   display: grid;
-  grid-template-rows: .15fr .15fr .15fr .15fr;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
 #contact a {
-  display: block;
+  display: flex;
+  align-items: center;
   color: #d9d9d9;
   text-decoration: none;
 }
 
 #contact .icon {
-  font-size: 2000px;
+  font-size: 20px;
 }
+
