@@ -76,6 +76,7 @@ body {
   grid-row: 8/11;
   grid-column: 3/10;
   grid-template-columns: 1fr 9fr;
+  grid-gap: 15px;
   display: grid;
   flex-direction: column;
   justify-self: center;
