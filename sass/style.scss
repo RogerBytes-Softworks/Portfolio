@@ -3,6 +3,7 @@ sass sass/style.scss css/style.css --watch --style compressed
 */
 
 /*
+Image by <a href="https://www.freepik.com/free-vector/gradient-mountain-landscape_20008477.htm#query=mountain&position=5&from_view=search&track=sph">Freepik</a>
 Voix ambiguë d'un cœur qui, au zéphyr, préfère les joyaux à Kintzburg.
 */
 
@@ -128,4 +129,18 @@ body {
 
 #contact .icon {
   font-size: 20px;
+}
+
+body {
+  background: linear-gradient(to bottom, #87CEEB, #ffffff);
+}
+
+.mountains {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50vh;
+  background: linear-gradient(to top, #ffffff, #87CEEB);
+  clip-path: polygon(0 100%, 100% 100%, 100% 75%, 0 100%);
 }
