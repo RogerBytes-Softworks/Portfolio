@@ -1,9 +1,9 @@
 #!/bin/sh
 
-if [ "$1" = "--m" ]; then
+if [ "$1" = "-m" ]; then
   message="$2"
 else
-  message="update"
+  message="màj non commentée"
 fi
 
 git add .
