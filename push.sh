@@ -3,7 +3,7 @@
 if [ "$1" = "-m" ]; then
   message="$2"
 else
-  message="màj non commentée"
+  message="no comment"
 fi
 
 git add .
