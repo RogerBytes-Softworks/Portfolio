@@ -91,12 +91,12 @@ body {
 }
 
 #contact {
-  grid-row: 8/11;
+  grid-row: 9/11;
   grid-column: 3/10;
   grid-template-columns: 1fr 9fr;
   grid-gap: 10px;
   padding: 50%;
-  display: grid;
+  display: flex;
   flex-direction: column;
   justify-self: center;
   align-self: center;
