@@ -44,6 +44,8 @@ body {
   border-radius: 10px;
   overflow: hidden;
   grid-template-rows: .2fr 9fr .8fr;
+  // box-shadow: 0px 0 10px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, .5);
 }
 
 #menuNav {
