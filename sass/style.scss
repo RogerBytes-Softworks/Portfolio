@@ -27,7 +27,7 @@ body {
   font-family: Regular, "Times New Roman", Times, serif;
   font-display: swap;
   height: 100dvh;
-  background-image: url("../img/background/1.svg");
+  background-image: url("../img/background/4.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
@@ -47,7 +47,6 @@ body {
 }
 
 #menuNav {
-  // background-color: #d9d9d935;
   background-color: #8f8f8f35;
   grid-row: 3/4;
 }
@@ -64,7 +63,6 @@ body {
   display: grid;
   grid-template-columns: 15px 9fr 15px; // 11
   grid-template-rows: 15px .4fr 3fr .6fr 1fr 1fr 1fr 1fr 1fr 15px; // 11
-  // background-color: #d9d9d935;
   background-color: #8f8f8f35;
   grid-row: 1/3;
   color: #d9d9d9;
@@ -108,11 +106,11 @@ body {
 }
 
 #contact td {
-  padding-right: 10px; /* Ajoutez l'espace souhaité entre les colonnes */
+  padding-right: 10px;
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#contact tr td:nth-of-type(2) {{}
+#contact tr td:nth-of-type(2) {
   font-size: 1.2em;
 }
