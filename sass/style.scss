@@ -108,42 +108,43 @@ body {
   font-size: 1.2em;
 }
 
-
-
 #nav {
   display: grid;
   grid-template-columns: 5px 4fr 1fr 1fr 1fr 5px;
   grid-template-rows: 5px 1fr 7px;
   height: 100%;
-  background-color: violet;
 }
 
 #textMenuBtn {
-  background-color: white;
+  color: #d9d9d9;
+  background: none;
   grid-column: 2/3;
   grid-row: 2/3;
   border: none;
 }
 
 #backBtn {
-  background-color: green;
+  color: #d9d9d9;
   grid-column: 3/4;
   grid-row: 2/3;
   border: none;
+  background: none;
 }
 
 #nextBtn {
-  background-color: blue;
+  color: #d9d9d9;
   grid-column: 4/5;
   grid-row: 2/3;
   border: none;
+  background: none;
 }
 
 #burgerBtn {
-  background-color: red;
+  color: #d9d9d9;
   grid-column: 5/6;
   grid-row: 2/3;
   border: none;
+  background: none;
 }
 
 #menuNav::before {
