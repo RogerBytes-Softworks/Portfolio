@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Découvrez mes réalisations et compétences à travers mon portfolio professionnel. Je suis passionné par l'informatique et j'ai travaillé sur divers projets personnels. Contactez-moi pour discuter de vos besoins et collaborer ensemble.">
+  <meta name="keywords" content="portfolio, programmation, projets, réalisations, compétences, contact, cursus, cv, RogerBytes, RogerBytes Softworks">
+  <meta name="author" content="Harry RICHMOND">
+  <link rel="shortcut icon" href="./img/favicon.svg">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./script/main.js" defer type="module"></script>
+  <script src="./script.js" defer></script>
+<!-- https://rogerbytes-softworks.github.io/Portfolio/ -->
+</head>
+
+<body>
+  <div id="hiddenBox">
+    <div id="mainBox">
+      <figure id="photo">
+        <img src="./img/me.png" alt="mon avatar">
+      </figure>
+      <div id="presentation">
+        <p>Enchanté !
+          <br><strong>Harry RICHMOND</strong>, je suis actuellement en formation DWWM à l'AFCI de Villeneuve d'Ascq.
+        </p>
+      </div>
+      <table id="contact">
+        <tr onclick="window.open('https://maps.app.goo.gl/3SdmuYwXvBqDZcWJA', '_blank');" class="contact-item">
+          <td><i class="fa-solid fa-location-dot icon"></i></td>
+          <td>Lille</td>
+        </tr>
+        <tr onclick="window.open('https://www.linkedin.com/in/rogerbytes-softworks/', '_blank');" class="contact-item">
+          <td><i class="fa-brands fa-linkedin icon"></i></td>
+          <td>LinkedIn</td>
+        </tr>
+        <tr onclick="window.open('https://matrix.to/#/@rogerbytes:matrix.org', '_blank');" class="contact-item">
+          <td><i class="fa-solid fa-message"></i></td>
+          <td>Contact</td>
+        </tr>
+        <tr onclick="window.open('https://github.com/RogerBytes', '_blank');" class="contact-item">
+          <td><i class="fa-brands fa-github"></i></td>
+          <td>GitHub</td>
+        </tr>
+      </table>
+    </div>
+    <nav id="menuNav">
+      <div id="nav">
+        <div id="textMenu">
+          Texte de la section
+        </div>
+        <button id="backBtn"><figure>
+          <i class="fa-solid:home"></i>
+        </figure></button>
+        <button id="nextBtn"><figure>
+          <span class="mdi:email"></span> 
+        </figure></button>
+        <button id="burgerBtn"><figure>
+          <i class="fa-thin fa-circle"></i>
+        </figure></button>
+      </div>
+    </nav>
+  </div>
+</body>
+</html>

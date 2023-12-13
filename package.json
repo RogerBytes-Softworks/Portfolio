@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.4.2"
+    "@iconify/iconify": "^3.1.1",
+    "@iconify/tools": "^3.0.7"
   }
 }

@@ -26,7 +26,7 @@ body {
   font-family: Regular, "Times New Roman", Times, serif;
   font-display: swap;
   height: 100dvh;
-  background-image: url("../img/background/1.svg");
+  background-image: url("../img/background/day.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
@@ -119,13 +119,21 @@ body {
   height: 100%;
 }
 
-#textMenuBtn {
+// #nav figure {
+//   font-size: 3em;
+// }
+
+#textMenu {
   color: #d9d9d9;
-  background: none;
   grid-column: 2/3;
   grid-row: 2/3;
   border: none;
   font-family: Menu, Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2px;
 }
 
 #backBtn {
