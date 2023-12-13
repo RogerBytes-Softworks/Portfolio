@@ -26,7 +26,7 @@ body {
   font-family: Regular, "Times New Roman", Times, serif;
   font-display: swap;
   height: 100dvh;
-  background-image: url("../img/background/4.svg");
+  background-image: url("../img/background/1.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
@@ -94,6 +94,10 @@ body {
   align-items: center;
 }
 
+#contact td:first-child {
+  text-align: center;
+}
+
 #contact .icon {
   font-size: 20px;
 }
@@ -121,6 +125,7 @@ body {
   grid-column: 2/3;
   grid-row: 2/3;
   border: none;
+  font-family: Menu, Arial, Helvetica, sans-serif;
 }
 
 #backBtn {
