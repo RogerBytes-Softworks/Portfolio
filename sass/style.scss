@@ -14,12 +14,12 @@ Voix ambiguë d'un cœur qui, au zéphyr, préfère les joyaux à Kintzburg.
 
 @font-face {
   font-family: Regular;
-  src: url(../fonts/Stone-Inf-ITC-Medium.ttf);
+  src: url(../font/Stone-Inf-ITC-Medium.ttf);
 }
 
 @font-face {
   font-family: Menu;
-  src: url(../fonts/ITCAvantGardeStd-Demi.otf);
+  src: url(../font/ITCAvantGardeStd-Demi.otf);
 }
 
 body {
@@ -119,10 +119,6 @@ body {
   height: 100%;
 }
 
-// #nav figure {
-//   font-size: 3em;
-// }
-
 #textMenu {
   color: #d9d9d9;
   grid-column: 2/3;
@@ -166,10 +162,4 @@ body {
   background-color: #d9d9d9;
   width: 100%;
   content: "";
-}
-
-#icon {
-  font-size: 58px;
-  color: red;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
