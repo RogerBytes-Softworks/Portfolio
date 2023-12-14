@@ -1,7 +1,7 @@
 "use strict";
 
 //?-------------  Déclaration des Imports  -----------------//
-import { IconifyIcon } from '@iconify/iconify';
+
 
 
 //*-------------  Déclaration des Variables  ---------------//
