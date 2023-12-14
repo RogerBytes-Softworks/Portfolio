@@ -1,22 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
+  <title>Portfolio</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="./node_modules/@iconify/iconify/dist/iconify.min.js" defer type="module"></script>
+  <meta name="description" content="Découvrez mes réalisations et compétences à travers mon portfolio professionnel. Je suis passionné par l'informatique et j'ai travaillé sur divers projets personnels. Contactez-moi pour discuter de vos besoins et collaborer ensemble.">
+  <meta name="keywords" content="portfolio, programmation, projets, réalisations, compétences, contact, cursus, cv, RogerBytes, RogerBytes Softworks">
+  <meta name="author" content="Harry RICHMOND">
+  <link rel="shortcut icon" href="./img/favicon.svg">
+  <link rel="stylesheet" href="./css/style.css">
   <script src="./script/main.js" defer type="module"></script>
-
+  <script src="./node_modules/@iconify/iconify/dist/iconify.min.js" defer type="module"></script>
+<!-- https://rogerbytes-softworks.github.io/Portfolio/ -->
 </head>
-<body>
-  <i
-  class="iconify"
-  data-icon="eva:people-outline"
-  style="
-    font-size: 70px;
-    color: red;"
-  ></i>
 
-  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M16.73 13.885h.77v-1.5H19v-.77h-1.5v-1.5h-.77v1.5h-1.5v.77h1.5zm-5.692.807h.885v-2.365l2.289 2.365h1.228l-2.652-2.73l2.652-2.654h-1.19l-2.327 2.327V9.308h-.885zm-3.076 0h.884V9.308H6.462v.884h1.5zM4 20V4h16v16zm1-1h14V5H5zm0 0V5z"/></svg>
+<body>
+  <div id="hiddenBox">
+    <div id="mainBox">
+      <figure id="photo">
+        <img src="./img/me.png" alt="mon avatar">
+      </figure>
+      <div id="presentation">
+        <p>Enchanté !
+          <br><strong>Harry RICHMOND</strong>, je suis actuellement en formation DWWM à l'AFCI de Villeneuve d'Ascq.
+        </p>
+      </div>
+      <table id="contact">
+        <tr onclick="window.open('https://maps.app.goo.gl/3SdmuYwXvBqDZcWJA', '_blank');" class="contact-item">
+          <td><i class="fa-solid fa-location-dot icon"></i></td>
+          <td>Lille</td>
+        </tr>
+        <tr onclick="window.open('https://www.linkedin.com/in/rogerbytes-softworks/', '_blank');" class="contact-item">
+          <td><i class="fa-brands fa-linkedin icon"></i></td>
+          <td>LinkedIn</td>
+        </tr>
+        <tr onclick="window.open('https://matrix.to/#/@rogerbytes:matrix.org', '_blank');" class="contact-item">
+          <td><i class="fa-solid fa-message"></i></td>
+          <td>Contact</td>
+        </tr>
+        <tr onclick="window.open('https://github.com/RogerBytes', '_blank');" class="contact-item">
+          <td><i class="fa-brands fa-github"></i></td>
+          <td>GitHub</td>
+        </tr>
+      </table>
+    </div>
+    <nav id="menuNav">
+      <div id="nav">
+        <div id="textMenu">
+          Texte de la section
+        </div>
+        <button id="backBtn"><figure>
+          <i class="fa-solid:home"></i>
+        </figure></button>
+        <button id="nextBtn"><figure>
+          <span class="mdi:email"></span> 
+        </figure></button>
+        <button id="burgerBtn"><figure>
+          <i class="fa-thin fa-circle"></i>
+        </figure></button>
+      </div>
+    </nav>
+  </div>
 </body>
 </html>
