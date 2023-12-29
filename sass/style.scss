@@ -41,21 +41,20 @@ body {
   grid-row: 2/3;
   border-radius: 10px;
   overflow: hidden;
-  grid-template-rows: .2fr 9fr .8fr;
+  // grid-template-rows: 1.2fr .8fr;
+  grid-template-rows: 1.2fr .8fr;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, .6);
 }
 
 #menuNav {
   background-color: #8f8f8f35;
-  grid-row: 3/4;
+  grid-row: 0/0;
 }
-
-
 
 #mainBox {
   display: grid;
-  grid-template-columns: 15px 9fr 15px; // 11
-  grid-template-rows: 15px .4fr 3fr .6fr 1fr 1fr 1fr 1fr 1fr 15px; // 11
+  grid-template-columns: 15px 9fr 15px; // 3
+  grid-template-rows: 15px .4fr 3fr .6fr 1fr 1fr 1fr 1fr 1fr 15px; // 10
   background-color: #8f8f8f35;
   grid-row: 1/3;
   color: #d9d9d9;
@@ -139,9 +138,6 @@ body {
   border: none;
   font-family: Menu, Arial, Helvetica, sans-serif;
   font-size: 1.2em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding-top: 2px;
 }
 
@@ -167,10 +163,6 @@ body {
 #burgerBtn {
   grid-column: 5/6;
   grid-row: 2/3;
-}
-
-.iconify {
-  margin-top: 2px;
 }
 
 
