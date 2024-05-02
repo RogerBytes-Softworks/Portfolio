@@ -80,6 +80,8 @@ body {
 #textMenu { // navBar child
   align-self: center;
   justify-self: center;
+  position: relative;
+  top: 4%;
 }
 
 #navBar::before { // surface child
@@ -125,7 +127,7 @@ body {
   text-align: center;
 }
 
-@media screen and (orientation: landscape) and (pointer: coarse) {
+@media screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1024px), screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1024px) {
   /* Your CSS styles for landscape orientation */
   body {
     color: blue;
@@ -133,10 +135,9 @@ body {
   }
 }
 
-@media screen and (min-width: 100vh) {
+@media screen and (min-width: 100vh) and (pointer: fine) {
   /* Styles à appliquer lorsque la hauteur est inférieure à la largeur */
   body {
     color: red;
-    overflow: visible;
   }
 }
