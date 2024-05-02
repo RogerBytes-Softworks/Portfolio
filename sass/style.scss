@@ -35,6 +35,8 @@ body {
   display: grid;
   grid-template: 18px 1fr 18px / 18px 1fr 18px;
   overflow: hidden;
+  font-family: Regular, Arial, Helvetica, sans-serif;
+  color: white;
 }
 
 #surface { // body child
@@ -53,6 +55,8 @@ body {
 #navBar { // surface child
   grid-area: 2 / 1 / 3 / 2;
   background-color: #8f8f8f35;
+  color: white;
+  font-family: Menu, Arial, Helvetica, sans-serif;
 }
 
 #navBar::before { // surface child
@@ -79,6 +83,7 @@ body {
 
 #presentation { // mainBox child
   grid-area: 5 / 2 / 6 / 3;
+  
 }
 
 #contact { // mainBox child
@@ -90,6 +95,7 @@ body {
   align-items: center;
   font-family: Menu, Arial, Helvetica, sans-serif;
   font-size: 1.1em;
+  color: white;
 }
 
 #contact td:first-child {
