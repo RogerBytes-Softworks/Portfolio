@@ -15,7 +15,7 @@
 //!-------------  Instructions  ----------------------------//
 
 document.getElementById("viewportWidth").textContent = document.documentElement.getBoundingClientRect().width;
-document.getElementById("viewportHeight").textContent = document.documentElement.getBoundingClientRect().width;
+document.getElementById("viewportHeight").textContent = document.documentElement.getBoundingClientRect().height;
 
 
 //?-------------  Déclaration des Fonctions  ---------------//
