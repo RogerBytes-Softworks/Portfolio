@@ -42,15 +42,14 @@ body {
 #surface { // body child
   grid-area: 2 / 2 / 3 / 3;
   display: grid;
-  // grid-template: 1.2fr 0.09fr / 1fr;
-  grid-template: 90% 10%  / 1fr;
+  grid-template: 1.8fr .2fr  / 1fr;
 }
 
 #mainBox { // surface child
   grid-area: 1 / 1 / 2 / 2;
   background-color: #8f8f8f35;
   display: grid;
-  grid-template: 15px 0.15fr 28vh 0.25fr 0.6fr 0.15fr 1fr 13px / 15px 1fr 15px;
+  grid-template: 15px 15fr 28vh 25fr 60fr 15fr 100fr 13px / 15px 1fr 15px;
 }
 
 #navBar { // surface child
@@ -58,6 +57,23 @@ body {
   background-color: #8f8f8f35;
   color: white;
   font-family: Menu, Arial, Helvetica, sans-serif;
+  grid-template: 1fr / 57.5% 1fr 1fr 1fr;
+  display: grid;
+  position: relative;
+}
+
+.navBtn { // navBar child
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  align-self: center;
+  justify-self: center;
+  height: 60%;
+}
+
+#textMenu { // navBar child
+  grid-area: 1 / 1 / 2 / 2;
 }
 
 #navBar::before { // surface child
@@ -66,6 +82,7 @@ body {
   background-color: #d9d9d9ab;
   width: 100%;
   content: "";
+  position: absolute;
 }
 
 #photo { // mainBox child
@@ -84,7 +101,6 @@ body {
 
 #presentation { // mainBox child
   grid-area: 5 / 2 / 6 / 3;
-  
 }
 
 #contact { // mainBox child
