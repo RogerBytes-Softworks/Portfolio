@@ -14,7 +14,9 @@
 
 //!-------------  Instructions  ----------------------------//
 
-alert(window.innerWidth);
+document.getElementById("viewportWidth").textContent = window.innerWidth;
+document.getElementById("viewportHeight").textContent = window.innerHeight;
+
 
 //?-------------  Déclaration des Fonctions  ---------------//
 
