@@ -45,7 +45,7 @@ body {
   grid-template: 1.8fr .2fr  / 1fr;
   background-color: #8f8f8f35;
   border-radius: 10px;
-  box-shadow: inset;
+  box-shadow: 3px 3px 0.5px black;
 }
 
 #mainBox { // surface child
@@ -123,4 +123,20 @@ body {
 
 #contact td:first-child {
   text-align: center;
+}
+
+@media screen and (orientation: landscape) and (pointer: coarse) {
+  /* Your CSS styles for landscape orientation */
+  body {
+    color: blue;
+    overflow: visible;
+  }
+}
+
+@media screen and (min-width: 100vh) {
+  /* Styles à appliquer lorsque la hauteur est inférieure à la largeur */
+  body {
+    color: red;
+    overflow: visible;
+  }
 }
