@@ -127,6 +127,23 @@ body {
   text-align: center;
 }
 
+body.mobile-device {
+  @media screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1024px), screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1024px) {
+    body {
+      color: green;
+      overflow: visible;
+    }
+  }
+}
+
+body.desktop-device {
+  /* Styles pour les appareils de bureau */
+}
+
+
+
+
+
 @media screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1024px), screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1024px) {
   /* Your CSS styles for landscape orientation */
   body {

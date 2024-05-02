@@ -14,28 +14,20 @@
 
 //!-------------  Instructions  ----------------------------//
 
-const deviceType = detectDeviceType();
-document.getElementById('deviceType').textContent = deviceType;
+const device_type = detect_device_type();
+document.body.classList.add(deviceType.toLowerCase().replace(' ', '-'));
 
 //?-------------  Déclaration des Fonctions  ---------------//
 
-function detectDeviceType() {
+function detect_device_type() {
   const userAgent = navigator.userAgent;
 
-  if (userAgent.match(/Android/i)) {
-    return 'Android';
-  } else if (userAgent.match(/iPhone|iPad|iPod/i)) {
-    return 'iOS';
-  } else if (userAgent.match(/Windows Phone/i)) {
-    return 'Windows Phone';
-  } else if (userAgent.match(/Macintosh/i)) {
-    return 'Mac';
-  } else if (userAgent.match(/Windows/i)) {
-    return 'Windows';
-  } else if (userAgent.match(/Linux/i)) {
-    return 'Linux';
+  if (userAgent.match(/iPhone|iPad|iPod|Windows Phone|Android|AppleWebKit/i)) {
+    return 'Mobile Device';
+  } else if (userAgent.match(/Macintosh|Windows|Linux|Gecko/i)) {
+    return 'Desktop Device';
   } else {
-    return 'Autre';
+    return `Unknown Device : ${userAgent}`;
   }
 }
 
