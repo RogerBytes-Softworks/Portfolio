@@ -14,8 +14,8 @@
 
 //!-------------  Instructions  ----------------------------//
 
-document.getElementById("viewportWidth").textContent = window.innerWidth;
-document.getElementById("viewportHeight").textContent = window.innerHeight;
+document.getElementById("viewportWidth").textContent = window.screen.width;
+document.getElementById("viewportHeight").textContent = window.screen.height;
 
 
 //?-------------  Déclaration des Fonctions  ---------------//
