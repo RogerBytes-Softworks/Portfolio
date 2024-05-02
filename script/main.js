@@ -24,12 +24,22 @@ function detect_device_type() {
   const userAgent = navigator.userAgent;
 
   if (userAgent.match(/iPhone|iPad|iPod|Windows Phone|Android|AppleWebKit/i)) {
+    return userAgent;
+  } else if (userAgent.match(/Macintosh|Windows|Linux|Gecko/i)) {
+    return userAgent;
+  } else {
+    return userAgent;
+  }
+
+
+
+  /*   if (userAgent.match(/iPhone|iPad|iPod|Windows Phone|Android|AppleWebKit/i)) {
     return `Mobile Device : ${userAgent}`;
   } else if (userAgent.match(/Macintosh|Windows|Linux|Gecko/i)) {
     return `Desktop Device : ${userAgent}`;
   } else {
     return `Unknown Device : ${userAgent}`;
-  }
+  } */
 }
 
 

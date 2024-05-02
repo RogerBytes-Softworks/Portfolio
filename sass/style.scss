@@ -137,24 +137,27 @@ body.mobile-device {
 }
 
 body.desktop-device {
-  /* Styles pour les appareils de bureau */
-}
-
-
-
-
-
-@media screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1024px), screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1024px) {
-  /* Your CSS styles for landscape orientation */
   body {
-    color: blue;
+    color: green;
     overflow: visible;
   }
 }
 
-@media screen and (min-width: 100vh) and (pointer: fine) {
-  /* Styles à appliquer lorsque la hauteur est inférieure à la largeur */
-  body {
-    color: red;
-  }
-}
+
+
+
+
+// @media screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1024px), screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1024px) {
+//   /* Your CSS styles for landscape orientation */
+//   body {
+//     color: blue;
+//     overflow: visible;
+//   }
+// }
+
+// @media screen and (min-width: 100vh) and (pointer: fine) {
+//   /* Styles à appliquer lorsque la hauteur est inférieure à la largeur */
+//   body {
+//     color: red;
+//   }
+// }
