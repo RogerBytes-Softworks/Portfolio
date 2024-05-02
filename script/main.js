@@ -14,7 +14,7 @@
 
 //!-------------  Instructions  ----------------------------//
 
-
+alert(window.innerWidth);
 
 //?-------------  Déclaration des Fonctions  ---------------//
 
