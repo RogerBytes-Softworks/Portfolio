@@ -42,7 +42,8 @@ body {
 #surface { // body child
   grid-area: 2 / 2 / 3 / 3;
   display: grid;
-  grid-template: 1.2fr 0.09fr / 1fr;
+  // grid-template: 1.2fr 0.09fr / 1fr;
+  grid-template: 90% 10%  / 1fr;
 }
 
 #mainBox { // surface child
