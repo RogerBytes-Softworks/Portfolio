@@ -15,7 +15,6 @@
 
 const device_type = detect_device_type().toString();
 document.body.classList.add(device_type.toLowerCase().replace(' ', '-'));
-document.getElementById('device-type').textContent = device_type;
 
 //?-------------  Déclaration des Fonctions  ---------------//
 
