@@ -81,6 +81,7 @@ body {
   justify-self: center;
   position: relative;
   top: 4%;
+  text-align: center;
 }
 
 #navBar::before { // surface child
@@ -153,37 +154,32 @@ body {
   }
   #mainBox { // surface child
     grid-area: 1 / 2 / 2 / 3;
-    display: grid;
     grid-template: 15px 15fr 28vh 25fr 60fr 15fr 100fr 13px / 15px 1fr 15px;
   }
-  
+
   #navBar { // surface child
     grid-area: 1 / 1 / 2 / 2;
-    color: white;
-    font-family: Menu, Arial, Helvetica, sans-serif;
     grid-template: 55% 1fr 1fr 1fr / 1fr;
-    display: grid;
-    position: relative;
   }
 
   #navBar::before { // surface child
-    display: block;
-    height: 2px;
-    background-color: #d9d9d9ab;
     width: calc(100dvh - calc(18px * 2));
-    z-index: 50;
-    content: "";
-    position: absolute;
     rotate: -90deg;
     transform-origin: right;
     right: 0;
     top : 0;
-    
-
   }
+
+  #textMenu { // navBar child
+    grid-area: 1 / 1 / 2 / 2;
+    rotate: -90deg;
+    top: 0%;
+    width: 750%;
+  }
+
 }
 
 
 body.desktop {
-    color: pink;
+    color: orangered;
 }
