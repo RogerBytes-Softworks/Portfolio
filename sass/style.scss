@@ -3,7 +3,7 @@ sass sass/style.scss css/style.css --watch --style compressed
 */
 
 /*
-Voix ambiguë d'un cœur qui, au zéphyr, préfère les joyaux à Kintzburg.
+Voix ambiguë d'un cœur qui, au zéphyr, préfère les joyaux français à Kintzburg.
 */
 
 *,
@@ -65,8 +65,6 @@ body {
   grid-template: 1fr / 65% 1fr 1fr 1fr;
   display: grid;
   position: relative;
-  bottom: 0;
-  height: 50px;
 }
 
 .navBtn { // navBar child
@@ -153,21 +151,23 @@ body {
 
 @media (orientation: landscape) {
   #surface { // body child
-    grid-template:  1fr / 100px 1.8fr;
-
+    grid-template:  1fr / 65px 1fr;
+    position: relative;
   }
   #mainBox { // surface child
     grid-area: 1 / 2 / 2 / 3;
     grid-template: 15px 15fr 28vh 25fr 60fr 15fr 100fr 13px / 15px 1fr 15px;
   }
 
-  #navBar { // surface child
+  #navBar {
     grid-area: 1 / 1 / 2 / 2;
-    grid-template: 55% 1fr 1fr 1fr / 1fr;
+    grid-template: 45% 2fr 1fr 1fr 1fr / 1fr;
+    // grid-template: 1fr / 65% 1fr 1fr 1fr;
   }
 
+
   #navBar::before { // surface child
-    width: calc((100% * (100vh / 100%)) - calc(18 * 2px));
+    width: calc((100% * (100vh / 100%)) * 10);
     rotate: -90deg;
     transform-origin: right;
     right: 0;
@@ -176,27 +176,31 @@ body {
 
   #textMenu { // navBar child
     grid-area: 1 / 1 / 2 / 2;
-    rotate: -90deg;
-    top: 0%;
-    width: 750%;
+    // rotate: 180deg;
+    // top: 0%;
+    // width: 750%;
   }
 
-  @media (max-height: 600px) {
-    body {
-      overflow: visible;
-      height: 100%;
-    };
-      #navBar {
-        position: relative;
-        overflow: hidden; /* Correction ici */
-      }
-      #navBar::before { // surface child
-        width: calc((100% * (100vh / 100%)) + 100vh);
-        rotate: -90deg;
-        transform-origin: right;
-        right: 0;
-        top : -1px;
-        overflow: hidden;
-      }
+  .navBtn { // navBar child
+    height: auto;
+    aspect-ratio: 1 / 1;
+    width: 70%;
   }
+
+  #backBtn {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+
+  #nextBtn {
+    grid-area: 4 / 1 / 5 / 2;
+  }
+
+  #burgerBtn {
+    grid-area: 5 / 1 / 6 / 2;
+  }
+
+
+
+  
+
 }
