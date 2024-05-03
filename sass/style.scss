@@ -148,3 +148,55 @@ body {
 .iconify {
   transform: translateY(1.5px);
 }
+
+// Responsive design
+
+@media (orientation: landscape) {
+  #surface { // body child
+    grid-template:  1fr / 100px 1.8fr;
+
+  }
+  #mainBox { // surface child
+    grid-area: 1 / 2 / 2 / 3;
+    grid-template: 15px 15fr 28vh 25fr 60fr 15fr 100fr 13px / 15px 1fr 15px;
+  }
+
+  #navBar { // surface child
+    grid-area: 1 / 1 / 2 / 2;
+    grid-template: 55% 1fr 1fr 1fr / 1fr;
+  }
+
+  #navBar::before { // surface child
+    width: calc((100% * (100vh / 100%)) - calc(18 * 2px));
+    rotate: -90deg;
+    transform-origin: right;
+    right: 0;
+    top : -1px;
+  }
+
+  #textMenu { // navBar child
+    grid-area: 1 / 1 / 2 / 2;
+    rotate: -90deg;
+    top: 0%;
+    width: 750%;
+  }
+
+  @media (max-height: 600px) {
+    body {
+      overflow: visible;
+      height: 100%;
+    };
+      #navBar {
+        position: relative;
+        overflow: hidden; /* Correction ici */
+      }
+      #navBar::before { // surface child
+        width: calc((100% * (100vh / 100%)) + 100vh);
+        rotate: -90deg;
+        transform-origin: right;
+        right: 0;
+        top : -1px;
+        overflow: hidden;
+      }
+  }
+}
