@@ -42,7 +42,7 @@ body {
 #surface { // body child
   grid-area: 2 / 2 / 3 / 3;
   display: grid;
-  grid-template: 1.8fr .2fr  / 1fr;
+  grid-template: 1.8fr 100px / 1fr;
   background-color: #8f8f8f35;
   border-radius: 10px;
   box-shadow: 3px 3px 0.5px black;
@@ -126,45 +126,64 @@ body {
   text-align: center;
 }
 
-body.mobile-device {
-  @media screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1024px), screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1024px) {
-    body {
-      color: green;
-      overflow: visible;
-    }
-  }
-}
-
-body.desktop-device {
+@media (max-height: 710px) {
   body {
-    color: green;
     overflow: visible;
+    height: 100%;
   }
 }
-
 
 /* Pour les tablettes en mode paysage */
 @media (min-aspect-ratio: 1/1) and (max-width: 1024px) {
-  /* Styles spécifiques aux tablettes en mode paysage */
+  body.mobile {
+    color: red;
+  }
 }
 
 /* Pour les mobiles en mode paysage */
-@media (max-aspect-ratio: 1/1) and (max-height: 480px) {
-  /* Styles spécifiques aux mobiles en mode paysage */
+@media (min-aspect-ratio: 1/1) and (max-height: 480px) {
+  body.mobile {
+    color: blue;
+  }
 }
 
-// @media screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1024px), screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1024px) {
-//   /* Your CSS styles for landscape orientation */
-//   body {
-//     color: blue;
-//     overflow: visible;
-//   }
-// }
+@media (orientation: landscape) {
+  #surface { // body child
+    grid-template:  1fr / 100px 1.8fr;
+  }
+  #mainBox { // surface child
+    grid-area: 1 / 2 / 2 / 3;
+    display: grid;
+    grid-template: 15px 15fr 28vh 25fr 60fr 15fr 100fr 13px / 15px 1fr 15px;
+  }
+  
+  #navBar { // surface child
+    grid-area: 1 / 1 / 2 / 2;
+    color: white;
+    font-family: Menu, Arial, Helvetica, sans-serif;
+    grid-template: 55% 1fr 1fr 1fr / 1fr;
+    display: grid;
+    position: relative;
+  }
 
-// @media screen and (min-width: 100vh) and (pointer: fine) {
-//   /* Styles à appliquer lorsque la hauteur est inférieure à la largeur */
-//   body {
-//     color: red;
-//   }
-// }
+  #navBar::before { // surface child
+    display: block;
+    height: 2px;
+    background-color: #d9d9d9ab;
+    width: calc(100dvh - calc(18px * 2));
+    z-index: 50;
+    content: "";
+    position: absolute;
+    rotate: -90deg;
+    transform-origin: right;
+    right: 0;
+    top : 0;
+    
 
+  }
+}
+
+
+body.desktop {
+    color: pink;
+}
