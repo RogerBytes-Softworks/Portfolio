@@ -74,7 +74,7 @@ body {
   aspect-ratio: 1/1;
   align-self: center;
   justify-self: center;
-  height: 65%;
+  height: 100%;
   background-color: transparent;
   border-style: solid;
   border-color: #d9d9d9ab;
@@ -140,5 +140,5 @@ body {
   border-radius: 5px;
 }
 ::-webkit-scrollbar-track {
-  margin: 5px;
+  margin: 7px;
 }
