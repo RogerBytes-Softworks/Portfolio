@@ -39,19 +39,21 @@ body {
   color: white;
 }
 
-#surface { // body child
+#surface {  // body child
   grid-area: 2 / 2 / 3 / 3;
   display: grid;
-  grid-template: 1.8fr 100px / 1fr;
+  grid-template: auto 50px / 1fr;
   background-color: #8f8f8f35;
   border-radius: 10px;
-  box-shadow: 3px 3px 0.5px black;
+  box-shadow: 3px 3px 30px black;
+  overflow: hidden;
 }
 
-#mainBox { // surface child
+#mainBox {  // surface child
   grid-area: 1 / 1 / 2 / 2;
   display: grid;
   grid-template: 15px 15fr 28vh 25fr 60fr 15fr 100fr 13px / 15px 1fr 15px;
+  overflow: auto;
 }
 
 #navBar { // surface child
@@ -61,6 +63,8 @@ body {
   grid-template: 1fr / 55% 1fr 1fr 1fr;
   display: grid;
   position: relative;
+  bottom: 0;
+  height: 50px;
 }
 
 .navBtn { // navBar child
@@ -93,7 +97,7 @@ body {
   position: absolute;
 }
 
-#photo { // mainBox child
+#photo {  // mainBox child
   grid-area: 3 / 2 / 4 / 3;
   background-color: #d9d9d97b;
   height: 100%;
@@ -103,7 +107,7 @@ body {
   justify-self: center;
 }
 
-#photo img { // photo child
+#photo img {  // photo child
   height: 105%;
 }
 
@@ -111,7 +115,7 @@ body {
   grid-area: 5 / 2 / 6 / 3;
 }
 
-#contact { // mainBox child
+#contact {  // mainBox child
   grid-area: 7 / 2 / 8 / 3;
   height: 100%;
   display: flex;
@@ -127,59 +131,14 @@ body {
   text-align: center;
 }
 
-@media (max-height: 710px) {
-  body {
-    overflow: visible;
-    height: 100%;
-  }
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: #f5f5f500;
 }
-
-/* Pour les tablettes en mode paysage */
-@media (min-aspect-ratio: 1/1) and (max-width: 1024px) {
-  body.mobile {
-    color: red;
-  }
+::-webkit-scrollbar-thumb {
+  background-color: #d9d9d97b;
+  border-radius: 5px;
 }
-
-/* Pour les mobiles en mode paysage */
-@media (min-aspect-ratio: 1/1) and (max-height: 480px) {
-  body.mobile {
-    color: blue;
-  }
-}
-
-@media (orientation: landscape) {
-  #surface { // body child
-    grid-template:  1fr / 100px 1.8fr;
-  }
-  #mainBox { // surface child
-    grid-area: 1 / 2 / 2 / 3;
-    grid-template: 15px 15fr 28vh 25fr 60fr 15fr 100fr 13px / 15px 1fr 15px;
-  }
-
-  #navBar { // surface child
-    grid-area: 1 / 1 / 2 / 2;
-    grid-template: 55% 1fr 1fr 1fr / 1fr;
-  }
-
-  #navBar::before { // surface child
-    width: calc(100dvh - calc(18px * 2));
-    rotate: -90deg;
-    transform-origin: right;
-    right: 0;
-    top : 0;
-  }
-
-  #textMenu { // navBar child
-    grid-area: 1 / 1 / 2 / 2;
-    rotate: -90deg;
-    top: 0%;
-    width: 750%;
-  }
-
-}
-
-
-body.desktop {
-    color: orangered;
+::-webkit-scrollbar-track {
+  margin: 5px;
 }
