@@ -17,11 +17,13 @@ Voix ambiguë d'un cœur qui, au zéphyr, préfère les joyaux à Kintzburg.
 @font-face {
   font-family: Regular;
   src: url(../font/Stone-Inf-ITC-Medium.ttf);
+  font-display: swap;
 }
 
 @font-face {
   font-family: Menu;
   src: url(../font/ITCAvantGardeStd-Demi.otf);
+  font-display: swap;
 }
 
 body {
