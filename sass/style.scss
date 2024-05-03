@@ -52,7 +52,6 @@ body {
   grid-area: 1 / 1 / 2 / 2;
   display: grid;
   grid-template: 15px 15fr 28vh 25fr 60fr 15fr 100fr 13px / 15px 1fr 15px;
-
 }
 
 #navBar { // surface child
@@ -144,8 +143,15 @@ body.desktop-device {
 }
 
 
+/* Pour les tablettes en mode paysage */
+@media (min-aspect-ratio: 1/1) and (max-width: 1024px) {
+  /* Styles spécifiques aux tablettes en mode paysage */
+}
 
-
+/* Pour les mobiles en mode paysage */
+@media (max-aspect-ratio: 1/1) and (max-height: 480px) {
+  /* Styles spécifiques aux mobiles en mode paysage */
+}
 
 // @media screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1024px), screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1024px) {
 //   /* Your CSS styles for landscape orientation */
@@ -161,3 +167,4 @@ body.desktop-device {
 //     color: red;
 //   }
 // }
+
