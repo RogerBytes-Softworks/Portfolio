@@ -60,7 +60,7 @@ body {
   grid-area: 2 / 1 / 3 / 2;
   color: white;
   font-family: Menu, Arial, Helvetica, sans-serif;
-  grid-template: 1fr / 60% 1fr 1fr 1fr;
+  grid-template: 1fr / 65% 1fr 1fr 1fr;
   display: grid;
   position: relative;
   bottom: 0;
@@ -74,7 +74,7 @@ body {
   aspect-ratio: 1/1;
   align-self: center;
   justify-self: center;
-  height: 65%;
+  height: 70%;
   background-color: transparent;
   border-style: solid;
   border-color: #d9d9d9ab;
@@ -88,7 +88,7 @@ body {
   text-align: center;
 }
 
-#navBar::before { // surface child
+#navBar::before { // navBar child
   display: block;
   height: 2px;
   background-color: #d9d9d9ab;
