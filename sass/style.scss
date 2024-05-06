@@ -227,6 +227,7 @@ body {
   }
 
   #beanBox {
+    display: block;
     grid-area: 2 / 1 / 3 / 2;
     border-radius: 10px;
     height: 100%;
@@ -263,8 +264,8 @@ body {
     margin: 7px;
   }
 
-  #scrollButton {
-    display: none; /* Par défaut, le bouton est caché */
+  #scrollBean {
+    display: none;
     position: fixed;
     bottom: 20px;
     right: 20px;

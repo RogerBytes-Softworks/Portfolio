@@ -5,15 +5,15 @@
 
 //*-------------  Déclaration des Variables  ---------------//
 
-
+const device_type = detect_device_type().toString(),
+  scroll_div = document.getElementById('beanBox'),
+  scrollB_button = document.getElementById('scrollBean');
 
 //!-------------  Déclaration des Events  ------------------//
 
 
-
 //!-------------  Instructions  ----------------------------//
 
-const device_type = detect_device_type().toString();
 document.body.classList.add(device_type.toLowerCase().replace(' ', '-'));
 
 //?-------------  Déclaration des Fonctions  ---------------//
@@ -28,6 +28,7 @@ function detect_device_type() {
     return `unknown-device`;
   }
 }
+
 
 //todo----------  TODO  ------------------------------------//
 
