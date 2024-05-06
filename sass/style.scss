@@ -87,18 +87,6 @@ body {
   border-color: #d9d9d9ab;
 }
 
-#textMenu { // navBar child
-  grid-area: 1 / 1 / 2 / 2;
-  align-self: center;
-  justify-self: center;
-  position: relative;
-  top: 4%;
-  text-align: center;
-  border: #007bff 2px solid;
-  height: 70%;
-  width: 90%;
-}
-
 #labelMenu {
   grid-area: 1 / 1 / 2 / 2;
   border: #d9d9d9ab 2px solid;
@@ -257,6 +245,11 @@ body {
     margin-left: -1px;
   }
 
+  #navBar::-webkit-scrollbar-thumb {
+    background-color: #d9d9d9b4;
+    border-radius: 5px;
+  }
+  
   #mainBox::-webkit-scrollbar {
     display: none;
     width: 5px;
@@ -265,7 +258,7 @@ body {
   }
   #mainBox::-webkit-scrollbar-thumb {
     display: none;
-    background-color: #d9d9d97b;
+    background-color: #d9d9d9c7;
     border-radius: 5px;
   }
   #mainBox::-webkit-scrollbar-track {
