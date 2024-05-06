@@ -12,7 +12,7 @@ const device_type = detect_device_type().toString(),
   main_box_height = main_box.scrollHeight,
   main_box_visible_height = main_box.clientHeight,
   main_box_overflow = main_box.scrollHeight - main_box.clientHeight,
-  overflowQuotient = main_box_overflow / main_box_visible_height;
+  overflowQuotient = main_box.scrollHeight / main_box_visible_height;
 
 //!-------------  Déclaration des Events  ------------------//
 
@@ -40,9 +40,7 @@ function detect_device_type() {
 }
 
 function show() {
-  console.log(main_box.scrollHeight);
-  console.log(main_box.clientHeight);
-  console.log(main_box.scrollHeight - main_box.clientHeight);
+  console.log(`L'overflow dépasse de ${overflowQuotient * 100}%`);
 }
 
 //todo----------  TODO  ------------------------------------//
