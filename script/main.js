@@ -7,7 +7,8 @@
 
 const device_type = detect_device_type().toString(),
   scroll_div = document.getElementById('beanBox'),
-  scrollB_button = document.getElementById('scrollBean');
+  scroll_button = document.getElementById('scrollBean'),
+  bean_box = document.getElementById('beanBox');
 
 //!-------------  Déclaration des Events  ------------------//
 
