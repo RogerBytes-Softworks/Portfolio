@@ -20,8 +20,15 @@ const device_type = detect_device_type().toString(),
 // Écouteur d'événements pour le défilement
 main_box.addEventListener('scroll', function() {
   var scrollPosition = main_box.scrollTop;
+  // Calculez la hauteur maximale que 'scroll_bean' peut atteindre sans sortir du parent.
+  var maxBeanTop = 100 - (scroll_bean.offsetHeight / bean_box.offsetHeight * 100);
+  // Calculez la position de 'scroll_bean' en fonction du défilement actuel, mais ne dépassez pas 'maxBeanTop'.
   var scrollBeanPosition = (scrollPosition / main_box_overflow) * 100;
-  scroll_bean.style.top = scrollBeanPosition + '%';
+  // Appliquez un ajustement pour compenser tout débordement de quelques pixels.
+  var pixelAdjustment = 1; // Vous pouvez affiner cette valeur selon vos besoins.
+  var adjustedBeanPosition = Math.min(scrollBeanPosition, maxBeanTop) - (pixelAdjustment / bean_box.offsetHeight * 100);
+  
+  scroll_bean.style.top = adjustedBeanPosition + '%';
 });
 
 // Écouteurs pour les événements 'mousedown' et 'touchstart' sur 'scroll_bean'
@@ -77,9 +84,19 @@ function show() {
 // Fonction pour déplacer 'scroll_bean' et faire défiler 'main_box'
 function moveScrollBean(e) {
   var beanBoxRect = bean_box.getBoundingClientRect();
-  var newBeanPosition = (e.clientY - beanBoxRect.top) / beanBoxRect.height;
-  scroll_bean.style.top = (newBeanPosition * 100) + '%';
-  main_box.scrollTop = newBeanPosition * main_box_overflow;
+  var newBeanTop = e.clientY - beanBoxRect.top; // Position Y du clic par rapport au haut de 'bean_box'
+
+  // Limitez la position Y pour qu'elle ne soit pas en dehors de 'bean_box'
+  newBeanTop = Math.max(0, Math.min(newBeanTop, beanBoxRect.height - scroll_bean.offsetHeight));
+
+  // Convertissez la position Y en pourcentage de la hauteur totale de 'bean_box'
+  var newBeanTopPercent = (newBeanTop / beanBoxRect.height) * 100;
+
+  scroll_bean.style.top = newBeanTopPercent + '%';
+
+  // Mettez à jour 'main_box.scrollTop' en fonction de la position de 'scroll_bean'
+  var scrollPosition = (newBeanTop / (beanBoxRect.height - scroll_bean.offsetHeight)) * main_box_overflow;
+  main_box.scrollTop = scrollPosition;
 }
 
 
