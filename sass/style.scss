@@ -26,6 +26,10 @@ Voix ambiguë d'un cœur qui, au zéphyr, préfère les joyaux français à Kint
   font-display: swap;
 }
 
+#beanBox {
+  display: none;
+}
+
 body {
   font-family: Regular, "Times New Roman", Times, serif;
   font-display: swap;
@@ -133,18 +137,32 @@ body {
   text-align: center;
 }
 
-::-webkit-scrollbar {
+#navBar::-webkit-scrollbar {
   width: 5px;
   height: 5px;
   background-color: #f5f5f500;
 }
-::-webkit-scrollbar-thumb {
+#navBar::-webkit-scrollbar-thumb {
   background-color: #d9d9d97b;
   border-radius: 5px;
 }
-::-webkit-scrollbar-track {
+#navBar::-webkit-scrollbar-track {
   margin: 7px;
 }
+
+#mainBox::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background-color: #f5f5f500;
+}
+#mainBox::-webkit-scrollbar-thumb {
+  background-color: #d9d9d97b;
+  border-radius: 5px;
+}
+#mainBox::-webkit-scrollbar-track {
+  margin: 7px;
+}
+
 .iconify {
   transform: translateY(1.5px);
 }
@@ -167,6 +185,7 @@ body {
     grid-gap: 2px;
     overflow-y: auto;
     overflow-x: hidden;
+    border-right: #d9d9d9ab 2px solid;
   }
 
   #navBar::before { // surface child
@@ -175,18 +194,18 @@ body {
     transform-origin: right;
     right: 0;
     top : -1px;
+    display: none;
   }
 
   #textMenu { // navBar child
     grid-area: 1 / 1 / 2 / 2;
     width: 5dvh;
-    writing-mode: vertical-lr;
+    writing-mode: vertical-rl;
     text-orientation: mixed;
     display: flex;
     justify-content: center;
     align-items: center;
     transform: rotate(180deg);
-    white-space: nowrap;
   }
 
   .navBtn { // navBar child
@@ -218,5 +237,43 @@ body {
     align-self: center;
     justify-self: center;
     margin-left: -1px;
+  }
+
+  #navBar {
+    grid-area: 1 / 1 / 2 / 2;
+    grid-template: 45% minmax(120px, 2fr) 1fr 1fr 1fr / 1fr;
+    grid-gap: 2px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  #mainBox::-webkit-scrollbar {
+    display: none;
+    width: 5px;
+    height: 5px;
+    background-color: #f5f5f500;
+  }
+  #mainBox::-webkit-scrollbar-thumb {
+    display: none;
+    background-color: #d9d9d97b;
+    border-radius: 5px;
+  }
+  #mainBox::-webkit-scrollbar-track {
+    display: none;
+    margin: 7px;
+  }
+
+  #scrollButton {
+    display: none; /* Par défaut, le bouton est caché */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
   }
 }
