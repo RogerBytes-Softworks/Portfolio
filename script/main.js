@@ -15,6 +15,8 @@ const device_type = detect_device_type().toString(),
   overflow_quotient = main_box.scrollHeight / main_box_visible_height;
 
 
+
+
 //!-------------  Déclaration des Events  ------------------//
 
 scroll_bean.onmousedown = function(event) {
@@ -67,6 +69,13 @@ const scrollPercentage = calculateScrollPercentage(); // Calculez le pourcentage
 const movable_height = bean_box.clientHeight - scroll_bean.offsetHeight;
 scroll_bean.style.top = (movable_height * scrollPercentage / 100) + 'px';
 
+if (main_box.scrollHeight <= main_box.clientHeight) {
+  // S'il n'y a pas d'overflow, cachez bean_box
+  bean_box.style.display = 'none';
+} else {
+  // S'il y a de l'overflow, assurez-vous que bean_box est visible
+  bean_box.style.display = 'block';
+}
 
 //?-------------  Déclaration des Fonctions  ---------------//
 
