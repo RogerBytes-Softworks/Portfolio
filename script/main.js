@@ -32,8 +32,11 @@ scroll_bean.onmousedown = function(event) {
     // Restreindre le mouvement de scrollBean verticalement à l'intérieur de beanBox
     new_top = Math.max(0, Math.min(new_top, rect.height - scroll_bean.offsetHeight - 4));
 
+
     // Appliquer la nouvelle position Y sans changer la position X
     scroll_bean.style.top = new_top + 'px';
+
+    scrollToPercentage(main_box, scroll_bean_position())
   }
 
   // Ajouter les événements pour le mouvement et le relâchement de la souris
@@ -48,14 +51,27 @@ scroll_bean.ondragstart = function() {
   return false;
 };
 
+main_box.addEventListener('scroll', function() {
+  const scrollPercentage = calculateScrollPercentage(); // Utilisez votre fonction existante
+  const movable_height = bean_box.clientHeight - scroll_bean.offsetHeight;
+  scroll_bean.style.top = (movable_height * scrollPercentage / 100) + 'px';
+});
+
+
 //!-------------  Instructions  ----------------------------//
 
 document.body.classList.add(device_type.toLowerCase().replace(" ", "-"));
 scroll_bean.style.height = `${100 / overflow_quotient}%`;
 
 setInterval(() => {
+  show(calculateScrollPercentage());
+}, 1000 / 3);
+
+setInterval(() => {
   show(scroll_bean_position());
 }, 1000 / 3);
+
+// scrollToPercentage(main_box, scroll_bean_position());
 
 //?-------------  Déclaration des Fonctions  ---------------//
 
@@ -80,19 +96,32 @@ function show(param) {
 }
 
 function scroll_bean_position() {
-  const bean_box_rect = bean_box.getBoundingClientRect();
-  const scroll_bean_rect = scroll_bean.getBoundingClientRect();
-  // La position du scrollBean est relative au haut de beanBox
-  // Ajustez pour tenir compte de la marge interne ou de l'espace supplémentaire
-  const scroll_bean_top = scroll_bean_rect.top - bean_box_rect.top;
-  // La hauteur disponible pour le déplacement du scrollBean, ajustée pour les paddings/bordures
-  const max_scroll_bean_top = bean_box_rect.height - scroll_bean_rect.height;
-  // Ajuster si le scroll_bean_top est négatif
-  const normalized_scroll_bean_top = Math.max(0, scroll_bean_top);
+  // Obtenir la position 'top' de scroll_bean relative à bean_box
+  const bean_top = scroll_bean.offsetTop;
+  // Calculer la hauteur disponible pour le déplacement de scroll_bean
+  // Hauteur totale de bean_box moins la hauteur de scroll_bean
+  const movable_height = bean_box.clientHeight - scroll_bean.offsetHeight;
   // Calculer la position en pourcentage
-  const position_percentage = (normalized_scroll_bean_top / max_scroll_bean_top) * 100;
-  // Clamper la valeur entre 0 et 100 pour éviter les dépassements
+  const position_percentage = (bean_top / movable_height) * 100;
+  // Clamper la valeur entre 0 et 100 pour éviter de dépasser les limites
   return Math.min(Math.max(position_percentage, 0), 100);
+}
+
+function calculateScrollPercentage() {
+  const scrollTop = main_box.scrollTop;
+  const scrollHeight = main_box.scrollHeight;
+  const clientHeight = main_box.clientHeight;
+  
+  // Le pourcentage de défilement est le rapport entre ce qui a déjà défilé et ce qui est défilable
+  const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+
+  return scrollPercentage.toFixed(2); // Arrondi à deux décimales pour la propreté
+}
+
+function scrollToPercentage(mainBox, percentage) {
+  const maxScrollTop = mainBox.scrollHeight - mainBox.clientHeight; // Max scrollTop value
+  const scrollTop = (percentage / 100) * maxScrollTop; // Calcul de la position de défilement en pixels
+  mainBox.scrollTop = scrollTop; // Fait défiler mainBox à la position calculée
 }
 
 //todo----------  TODO  ------------------------------------//
