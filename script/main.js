@@ -63,15 +63,10 @@ main_box.addEventListener('scroll', function() {
 document.body.classList.add(device_type.toLowerCase().replace(" ", "-"));
 scroll_bean.style.height = `${100 / overflow_quotient}%`;
 
-setInterval(() => {
-  show(calculateScrollPercentage());
-}, 1000 / 3);
+const scrollPercentage = calculateScrollPercentage(); // Calculez le pourcentage de défilement actuel
+const movable_height = bean_box.clientHeight - scroll_bean.offsetHeight;
+scroll_bean.style.top = (movable_height * scrollPercentage / 100) + 'px';
 
-setInterval(() => {
-  show(scroll_bean_position());
-}, 1000 / 3);
-
-// scrollToPercentage(main_box, scroll_bean_position());
 
 //?-------------  Déclaration des Fonctions  ---------------//
 
