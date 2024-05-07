@@ -59,6 +59,15 @@ main_box.addEventListener('scroll', function() {
   scroll_bean.style.top = (movable_height * scrollPercentage / 100) + 'px';
 });
 
+window.addEventListener('resize', function() {
+  if (main_box.scrollHeight <= main_box.clientHeight) {
+    // S'il n'y a pas d'overflow, cachez bean_box
+    bean_box.style.display = 'none';
+  } else {
+    // S'il y a de l'overflow, assurez-vous que bean_box est visible
+    bean_box.style.display = 'block';
+  }
+});
 
 //!-------------  Instructions  ----------------------------//
 
