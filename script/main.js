@@ -17,47 +17,45 @@ const device_type = detect_device_type().toString(),
 
 //!-------------  Déclaration des Events  ------------------//
 
-// Écouteur d'événements pour le défilement
-main_box.addEventListener('scroll', function() {
-  var scrollPosition = main_box.scrollTop;
-  // Calculez la hauteur maximale que 'scroll_bean' peut atteindre sans sortir du parent.
-  var maxBeanTop = 100 - (scroll_bean.offsetHeight / bean_box.offsetHeight * 100);
-  // Calculez la position de 'scroll_bean' en fonction du défilement actuel, mais ne dépassez pas 'maxBeanTop'.
-  var scrollBeanPosition = (scrollPosition / main_box_overflow) * 100;
-  // Appliquez un ajustement pour compenser tout débordement de quelques pixels.
-  var pixelAdjustment = 1; // Vous pouvez affiner cette valeur selon vos besoins.
-  var adjustedBeanPosition = Math.min(scrollBeanPosition, maxBeanTop) - (pixelAdjustment / bean_box.offsetHeight * 100);
-  
-  scroll_bean.style.top = adjustedBeanPosition + '%';
-});
+scroll_bean.onmousedown = function(event) {
+  event.preventDefault(); // Prévenir le comportement par défaut de la sélection
+  const rect = bean_box.getBoundingClientRect();
 
-// Écouteurs pour les événements 'mousedown' et 'touchstart' sur 'scroll_bean'
-scroll_bean.addEventListener('mousedown', function(e) {
-  // Empêcher le comportement par défaut de sélection de texte, etc.
-  e.preventDefault();
-  document.addEventListener('mousemove', moveScrollBean);
-  document.addEventListener('mouseup', function() {
-    document.removeEventListener('mousemove', moveScrollBean);
-  });
-});
+  // Calculer l'offset initial
+  let offsetY = event.clientY - scroll_bean.getBoundingClientRect().top;
 
-scroll_bean.addEventListener('touchstart', function(e) {
-  e.preventDefault();
-  document.addEventListener('touchmove', function(ev) {
-    moveScrollBean(ev.touches[0]);
-  });
-  document.addEventListener('touchend', function() {
-    document.removeEventListener('touchmove', moveScrollBean);
-  });
-});
+  // Fonction pour le mouvement de glissement
+  function onMouseMove(event) {
+    // Calculer la nouvelle coordonnée Y
+    let new_top = event.clientY - rect.top - offsetY;
+
+    // Restreindre le mouvement de scrollBean verticalement à l'intérieur de beanBox
+    new_top = Math.max(0, Math.min(new_top, rect.height - scroll_bean.offsetHeight - 4));
+
+    // Appliquer la nouvelle position Y sans changer la position X
+    scroll_bean.style.top = new_top + 'px';
+  }
+
+  // Ajouter les événements pour le mouvement et le relâchement de la souris
+  document.addEventListener('mousemove', onMouseMove);
+  document.onmouseup = function() {
+    document.removeEventListener('mousemove', onMouseMove);
+    scroll_bean.onmouseup = null;
+  };
+};
+
+scroll_bean.ondragstart = function() {
+  return false;
+};
 
 //!-------------  Instructions  ----------------------------//
 
 document.body.classList.add(device_type.toLowerCase().replace(" ", "-"));
-show();
-
 scroll_bean.style.height = `${100 / overflow_quotient}%`;
 
+setInterval(() => {
+  show(scroll_bean_position());
+}, 1000 / 3);
 
 //?-------------  Déclaration des Fonctions  ---------------//
 
@@ -77,28 +75,25 @@ function detect_device_type() {
   }
 }
 
-function show() {
-  console.log(`L'overflow dépasse de ${100 / overflow_quotient}% de quotient`);
+function show(param) {
+  console.log(param);
 }
 
-// Fonction pour déplacer 'scroll_bean' et faire défiler 'main_box'
-function moveScrollBean(e) {
-  var beanBoxRect = bean_box.getBoundingClientRect();
-  var newBeanTop = e.clientY - beanBoxRect.top; // Position Y du clic par rapport au haut de 'bean_box'
-
-  // Limitez la position Y pour qu'elle ne soit pas en dehors de 'bean_box'
-  newBeanTop = Math.max(0, Math.min(newBeanTop, beanBoxRect.height - scroll_bean.offsetHeight));
-
-  // Convertissez la position Y en pourcentage de la hauteur totale de 'bean_box'
-  var newBeanTopPercent = (newBeanTop / beanBoxRect.height) * 100;
-
-  scroll_bean.style.top = newBeanTopPercent + '%';
-
-  // Mettez à jour 'main_box.scrollTop' en fonction de la position de 'scroll_bean'
-  var scrollPosition = (newBeanTop / (beanBoxRect.height - scroll_bean.offsetHeight)) * main_box_overflow;
-  main_box.scrollTop = scrollPosition;
+function scroll_bean_position() {
+  const bean_box_rect = bean_box.getBoundingClientRect();
+  const scroll_bean_rect = scroll_bean.getBoundingClientRect();
+  // La position du scrollBean est relative au haut de beanBox
+  // Ajustez pour tenir compte de la marge interne ou de l'espace supplémentaire
+  const scroll_bean_top = scroll_bean_rect.top - bean_box_rect.top;
+  // La hauteur disponible pour le déplacement du scrollBean, ajustée pour les paddings/bordures
+  const max_scroll_bean_top = bean_box_rect.height - scroll_bean_rect.height;
+  // Ajuster si le scroll_bean_top est négatif
+  const normalized_scroll_bean_top = Math.max(0, scroll_bean_top);
+  // Calculer la position en pourcentage
+  const position_percentage = (normalized_scroll_bean_top / max_scroll_bean_top) * 100;
+  // Clamper la valeur entre 0 et 100 pour éviter les dépassements
+  return Math.min(Math.max(position_percentage, 0), 100);
 }
-
 
 //todo----------  TODO  ------------------------------------//
 
