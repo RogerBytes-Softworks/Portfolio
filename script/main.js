@@ -79,6 +79,16 @@ if (main_box.scrollHeight <= main_box.clientHeight) {
 
 label_menu.textContent = 'Acceuil';
 
+const style = document.createElement('style');
+document.head.appendChild(style);
+
+style.sheet.insertRule(`
+  #mainBox::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+`, style.sheet.cssRules.length);
+
 //?-------------  Déclaration des Fonctions  ---------------//
 
 function detect_device_type() {
