@@ -14,7 +14,7 @@ const device_type = detect_device_type().toString(),
   main_box_overflow = main_box.scrollHeight - main_box.clientHeight,
   overflow_quotient = main_box.scrollHeight / main_box_visible_height;
 
-
+var label_menu = document.getElementById('labelMenu');
 
 
 //!-------------  Déclaration des Events  ------------------//
@@ -76,6 +76,8 @@ if (main_box.scrollHeight <= main_box.clientHeight) {
   // S'il y a de l'overflow, assurez-vous que bean_box est visible
   bean_box.style.display = 'block';
 }
+
+label_menu.textContent = 'Acceuil';
 
 //?-------------  Déclaration des Fonctions  ---------------//
 

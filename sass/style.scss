@@ -182,7 +182,21 @@ body {
   }
   #mainBox { // surface child
     grid-area: 1 / 2 / 2 / 3;
-    grid-template: 15px 15fr 28vh 25fr 60fr 15fr 100fr 13px / 15px 1fr 15px;
+    grid-template: 15px 1fr 1fr 1fr 15px / 15px .1fr 1.6fr 1fr 15px;
+  }
+
+  #photo {  // mainBox child
+    grid-area: 2 / 4 / 3 / 5;
+    justify-self: end;
+  }
+
+  #presentation { // mainBox child
+    grid-area: 3 / 3 / 4 / 4;
+    font-size: 2em;
+  }
+
+  #contact { // mainBox child
+    grid-area: 4 / 4 / 5 / 5;
   }
 
   #navBar {
