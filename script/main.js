@@ -33,7 +33,7 @@ scroll_bean.onmousedown = function (event) {
     // Nouvelle coordonnée Y
     let new_top = event.clientY - rect.top - offset_y;
 
-    // Empêcher scrollBean de sortir de son parent
+    // Empêcher scroll_bean de sortir de son parent
     new_top = Math.max(
       0,
       Math.min(new_top, rect.height - scroll_bean.offsetHeight - 4)
@@ -59,19 +59,17 @@ scroll_bean.ondragstart = function () {
 };
 
 main_box.addEventListener("scroll", function () {
-  const scroll_percentage = calculate_scroll_percentage(); // Utilisez votre fonction existante
+  const scroll_percentage = calculate_scroll_percentage();
   const movable_height = bean_box.clientHeight - scroll_bean.offsetHeight;
   scroll_bean.style.top = (movable_height * scroll_percentage) / 100 + "px";
 });
 
 window.addEventListener("resize", adjust_bean_box_visibility);
 
-// Exécutez immédiatement la fonction pour mettre en place l'état initial correct
+// Forcer l'event ci-dessus
 window.dispatchEvent(new Event("resize"));
 
-scroll_bean.addEventListener(
-  "touchstart",
-  function (event) {
+scroll_bean.addEventListener("touchstart", function (event) {
     event.preventDefault();
     const rect = bean_box.getBoundingClientRect();
 
@@ -79,24 +77,25 @@ scroll_bean.addEventListener(
     const touch = event.touches[0];
     let offset_y = touch.clientY - scroll_bean.getBoundingClientRect().top;
 
+    // Fonction pour le mouvement de glissement
     function on_touch_move(event) {
-      // Utilisez le premier contact pour la nouvelle position Y
+      // Nouvelle coordonnée Y
       const touch = event.touches[0];
       let new_top = touch.clientY - rect.top - offset_y;
 
-      // Restreindre le mouvement de scroll_bean verticalement à l'intérieur de bean_box
+      // Empêcher scroll_bean de sortir de son parent
       new_top = Math.max(
         0,
         Math.min(new_top, rect.height - scroll_bean.offsetHeight - 4)
       );
 
-      // Appliquer la nouvelle position Y sans changer la position X
+      // Nouvelle position Y
       scroll_bean.style.top = new_top + "px";
 
       scroll_to_percentage(main_box, scroll_bean_position());
     }
 
-    // Ajouter les événements pour le mouvement et le relâchement du doigt
+    // Mouvement et relâchement du tactile
     document.addEventListener("touchmove", on_touch_move);
     document.addEventListener("touchend", function () {
       document.removeEventListener("touchmove", on_touch_move);
@@ -105,7 +104,7 @@ scroll_bean.addEventListener(
   { passive: false }
 );
 
-// Empêchez le navigateur de réagir à des gestes de défilement/drag sur #scrollBean
+// Empêche le le tactile de scroller dans la navbar quand on touche bean_box et son contenu.
 scroll_bean.addEventListener(
   "touchmove",
   function (event) {
@@ -120,15 +119,15 @@ document.body.classList.add(device_type.toLowerCase().replace(" ", "-"));
 scroll_bean.style.height = `${100 / overflow_quotient}%`;
 document.addEventListener("DOMContentLoaded", adjust_bean_box_visibility);
 
-const scroll_percentage = calculate_scroll_percentage(); // Calculez le pourcentage de défilement actuel
+const scroll_percentage = calculate_scroll_percentage(); // Calculer le pourcentage de défilement actuel
 const movable_height = bean_box.clientHeight - scroll_bean.offsetHeight;
 scroll_bean.style.top = (movable_height * scroll_percentage) / 100 + "px";
 
 if (main_box.scrollHeight <= main_box.clientHeight) {
-  // S'il n'y a pas d'overflow, cachez bean_box
+  // S'il n'y a pas d'overflow, cacher bean_box
   bean_box.style.display = "none";
 } else {
-  // S'il y a de l'overflow, assurez-vous que bean_box est visible
+  // S'il y a de l'overflow, bean_box est visible
   bean_box.style.display = "block";
 }
 
