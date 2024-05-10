@@ -149,10 +149,30 @@ function adjustBeanBoxVisibility() {
   const has_overflow = main_box.scrollHeight > main_box.clientHeight;
   const is_portrait = window.innerHeight > window.innerWidth;
 
+  // Mettre à jour l'affichage de bean_box
   if (has_overflow && !is_portrait) {
     bean_box.style.display = 'block';
   } else {
     bean_box.style.display = 'none';
+  }
+
+  // Mettre à jour la visibilité de la barre de défilement native de mainBox
+  if (is_portrait) {
+    // En mode portrait, affichez la barre de défilement native
+    style.sheet.insertRule(`
+      #mainBox::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+    `, style.sheet.cssRules.length);
+  } else {
+    // En mode paysage, cachez la barre de défilement native
+    style.sheet.insertRule(`
+      #mainBox::-webkit-scrollbar {
+        width: 0px;
+        height: 0px;
+      }
+    `, style.sheet.cssRules.length);
   }
 }
 
