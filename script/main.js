@@ -59,20 +59,16 @@ main_box.addEventListener('scroll', function() {
   scroll_bean.style.top = (movable_height * scrollPercentage / 100) + 'px';
 });
 
-window.addEventListener('resize', function() {
-  if (main_box.scrollHeight <= main_box.clientHeight) {
-    // S'il n'y a pas d'overflow, cachez bean_box
-    bean_box.style.display = 'none';
-  } else {
-    // S'il y a de l'overflow, assurez-vous que bean_box est visible
-    bean_box.style.display = 'block';
-  }
-});
+window.addEventListener('resize', adjustBeanBoxVisibility);
+
+// Exécutez immédiatement la fonction pour mettre en place l'état initial correct
+window.dispatchEvent(new Event('resize'));
 
 //!-------------  Instructions  ----------------------------//
 
 document.body.classList.add(device_type.toLowerCase().replace(" ", "-"));
 scroll_bean.style.height = `${100 / overflow_quotient}%`;
+document.addEventListener('DOMContentLoaded', adjustBeanBoxVisibility);
 
 const scrollPercentage = calculateScrollPercentage(); // Calculez le pourcentage de défilement actuel
 const movable_height = bean_box.clientHeight - scroll_bean.offsetHeight;
@@ -147,6 +143,17 @@ function scrollToPercentage(mainBox, percentage) {
   const maxScrollTop = mainBox.scrollHeight - mainBox.clientHeight; // Max scrollTop value
   const scrollTop = (percentage / 100) * maxScrollTop; // Calcul de la position de défilement en pixels
   mainBox.scrollTop = scrollTop; // Fait défiler mainBox à la position calculée
+}
+
+function adjustBeanBoxVisibility() {
+  const has_overflow = main_box.scrollHeight > main_box.clientHeight;
+  const is_portrait = window.innerHeight > window.innerWidth;
+
+  if (has_overflow && !is_portrait) {
+    bean_box.style.display = 'block';
+  } else {
+    bean_box.style.display = 'none';
+  }
 }
 
 //todo----------  TODO  ------------------------------------//

@@ -109,6 +109,11 @@ body {
   grid-area: 1 / 4 / 2 / 5;
 }
 
+#contact tr:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 #photo {  // mainBox child
   grid-area: 3 / 2 / 4 / 3;
   background-color: #d9d9d97b;
