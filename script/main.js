@@ -23,30 +23,30 @@ document.head.appendChild(style);
 
 
 scroll_bean.onmousedown = function (event) {
-  event.preventDefault(); // Prévenir le comportement par défaut de la sélection
   const rect = bean_box.getBoundingClientRect();
 
-  // Calculer l'offset initial
+  // Offset initial
   let offset_y = event.clientY - scroll_bean.getBoundingClientRect().top;
 
   // Fonction pour le mouvement de glissement
   function on_mouse_move(event) {
-    // Calculer la nouvelle coordonnée Y
+    // Nouvelle coordonnée Y
     let new_top = event.clientY - rect.top - offset_y;
 
-    // Restreindre le mouvement de scrollBean verticalement à l'intérieur de beanBox
+    // Empêcher scrollBean de sortir de son parent
     new_top = Math.max(
       0,
       Math.min(new_top, rect.height - scroll_bean.offsetHeight - 4)
     );
+    // Pour une raison que j'ignore j'ai du diminuer de 4px, sinon il s'arrête un peu avant
 
-    // Appliquer la nouvelle position Y sans changer la position X
+    // Nouvelle position Y
     scroll_bean.style.top = new_top + "px";
 
     scroll_to_percentage(main_box, scroll_bean_position());
   }
 
-  // Ajouter les événements pour le mouvement et le relâchement de la souris
+  // Mouvement et relâchement du curseur
   document.addEventListener("mousemove", on_mouse_move);
   document.onmouseup = function () {
     document.removeEventListener("mousemove", on_mouse_move);
