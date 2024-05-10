@@ -286,6 +286,7 @@ body {
   }
 
   #scrollBean {
+    touch-action: none;
     position : absolute;
     background-color: #d9d9d9c7;
     color: white;

@@ -1,5 +1,6 @@
 "use strict";
 
+
 //?-------------  Déclaration des Imports  -----------------//
 
 
@@ -19,6 +20,8 @@ var label_menu = document.getElementById('labelMenu');
 
 //!-------------  Déclaration des Events  ------------------//
 
+const style = document.createElement('style');
+document.head.appendChild(style);
 scroll_bean.onmousedown = function(event) {
   event.preventDefault(); // Prévenir le comportement par défaut de la sélection
   const rect = bean_box.getBoundingClientRect();
@@ -64,6 +67,40 @@ window.addEventListener('resize', adjustBeanBoxVisibility);
 // Exécutez immédiatement la fonction pour mettre en place l'état initial correct
 window.dispatchEvent(new Event('resize'));
 
+scroll_bean.addEventListener('touchstart', function(event) {
+  event.preventDefault();
+  const rect = bean_box.getBoundingClientRect();
+  
+  // Utilisez le premier contact pour l'offset initial
+  const touch = event.touches[0];
+  let offsetY = touch.clientY - scroll_bean.getBoundingClientRect().top;
+  
+  function onTouchMove(event) {
+    // Utilisez le premier contact pour la nouvelle position Y
+    const touch = event.touches[0];
+    let new_top = touch.clientY - rect.top - offsetY;
+  
+    // Restreindre le mouvement de scroll_bean verticalement à l'intérieur de bean_box
+    new_top = Math.max(0, Math.min(new_top, rect.height - scroll_bean.offsetHeight - 4));
+  
+    // Appliquer la nouvelle position Y sans changer la position X
+    scroll_bean.style.top = new_top + 'px';
+  
+    scrollToPercentage(main_box, scroll_bean_position())
+  }
+  
+  // Ajouter les événements pour le mouvement et le relâchement du doigt
+  document.addEventListener('touchmove', onTouchMove);
+  document.addEventListener('touchend', function() {
+    document.removeEventListener('touchmove', onTouchMove);
+  });
+}, { passive: false });
+
+// Empêchez le navigateur de réagir à des gestes de défilement/drag sur #scrollBean
+scroll_bean.addEventListener('touchmove', function(event) {
+  event.preventDefault();
+}, { passive: false });
+
 //!-------------  Instructions  ----------------------------//
 
 document.body.classList.add(device_type.toLowerCase().replace(" ", "-"));
@@ -84,8 +121,7 @@ if (main_box.scrollHeight <= main_box.clientHeight) {
 
 label_menu.textContent = 'Acceuil';
 
-const style = document.createElement('style');
-document.head.appendChild(style);
+
 
 style.sheet.insertRule(`
   #mainBox::-webkit-scrollbar {
