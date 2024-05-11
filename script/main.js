@@ -161,10 +161,6 @@ function detect_device_type() {
   }
 }
 
-function show(param) {
-  console.log(param);
-}
-
 function scroll_bean_position() {
   // Obtenir la position 'top' de scroll_bean relative à bean_box
   const bean_top = scroll_bean.offsetTop;
