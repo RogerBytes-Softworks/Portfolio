@@ -181,13 +181,13 @@ function calculate_scroll_percentage() {
   // Le pourcentage de défilement est le rapport entre ce qui a déjà défilé et ce qui est défilable
   const scroll_percentage = (scroll_top / (scroll_height - clientHeight)) * 100;
 
-  return scroll_percentage.toFixed(2); // Arrondi à deux décimales pour la propreté
+  return scroll_percentage.toFixed(2); // Arrondi à deux décimales
 }
 
-function scroll_to_percentage(mainBoxVar, percentage) {
-  const max_scroll_top = mainBoxVar.scrollHeight - mainBoxVar.clientHeight; // Max scroll_top value
+function scroll_to_percentage(main_box_var, percentage) {
+  const max_scroll_top = main_box_var.scrollHeight - main_box_var.clientHeight; // Max scroll_top value
   const scroll_top = (percentage / 100) * max_scroll_top; // Calcul de la position de défilement en pixels
-  mainBoxVar.scrollTop = scroll_top; // Fait défiler mainBox à la position calculée
+  main_box_var.scrollTop = scroll_top; // Fait défiler mainBox à la position calculée
 }
 
 function adjust_bean_box_visibility() {
@@ -214,7 +214,7 @@ function adjust_bean_box_visibility() {
       style.sheet.cssRules.length
     );
   } else {
-    // En mode paysage, cachez la barre de défilement native
+    // Cacher la barre de défilement native en mode paysage
     style.sheet.insertRule(
       `
       #mainBox::-webkit-scrollbar {
